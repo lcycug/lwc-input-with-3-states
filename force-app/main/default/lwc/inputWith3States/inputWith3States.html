@@ -1,0 +1,40 @@
+<!--
+ - @author Sean Lee
+ - @date 2024-01-20
+ - @description This is an LWC component where input has three states.
+ -->
+<template>
+    <div class="slds-grid slds-wrap">
+        <div class="slds-size_1-of-2">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-size_1-of-1">
+                    <lightning-input
+                        type="checkbox"
+                        label="Select/Unselect All"
+                        checked={checked}
+                        onchange={handleSelectUnselectAll}
+                    ></lightning-input>
+                </div>
+                <div class="slds-size_1-of-1">
+                    <lightning-checkbox-group
+                        options={programmingLanguages}
+                        value={selectedCheckboxes}
+                        label=""
+                        name=""
+                        variant="label-hidden"
+                        onchange={handleCheckboxGroupChange}
+                    ></lightning-checkbox-group>
+                </div>
+            </div>
+        </div>
+        <div class="slds-size_1-of-2">
+            <div class="slds-checkbox">
+                <input type="checkbox" name="" id="nativeInput" onchange={handleChange}>
+                <label class="slds-checkbox__label" for="nativeInput">
+                    <span class="slds-checkbox_faux" style="margin-right: 0.5rem;"></span>
+                    <span class="slds-form-element__label">Native Input</span>
+                </label>
+            </div>
+        </div>
+    </div>
+</template>

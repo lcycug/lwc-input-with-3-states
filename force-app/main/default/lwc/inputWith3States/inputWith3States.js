@@ -44,6 +44,12 @@ export default class InputWith3States extends LightningElement {
             { value } = detail || {};
         this.selectedCheckboxes = value;
         this.checked = this.selectedCheckboxes.length !== 0;
+        this.template.querySelectorAll("input").forEach((inputElement) => {
+            inputElement.indeterminate =
+                this.selectedCheckboxes.length !==
+                    this.programmingLanguages.length &&
+                this.selectedCheckboxes.length !== 0;
+        });
     }
 
     handleChange(event) {

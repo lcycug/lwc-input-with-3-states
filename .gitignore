@@ -56,3 +56,4 @@ TestsResultsCache.xml
 .sfdx
 manifest
 node_modules
+package-lock.json

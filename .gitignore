@@ -52,4 +52,7 @@ mm.log
 TestCache.xml
 
 TestsResultsCache.xml
-
+.sf
+.sfdx
+manifest
+node_modules

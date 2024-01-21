@@ -9,13 +9,12 @@ const PROGRAMMING_LANGUAGES = ["JAVA", "C#", "PYTHON", "C"];
 export default class InputWith3States extends LightningElement {
     checked = false;
     @track selectedCheckboxes = [];
-    @track programmingLanguages = PROGRAMMING_LANGUAGES.reduce(
+    programmingLanguages = PROGRAMMING_LANGUAGES.reduce(
         (varSoFar, lang) => [
             ...varSoFar,
             {
                 label: lang,
-                value: lang,
-                checked: false
+                value: lang
             }
         ],
         []
@@ -50,26 +49,5 @@ export default class InputWith3States extends LightningElement {
                     this.programmingLanguages.length &&
                 this.selectedCheckboxes.length !== 0;
         });
-    }
-
-    handleChange(event) {
-        let { target } = event || {},
-            { checked, dataset } = target || {},
-            { label } = dataset || {};
-        if (checked) {
-            this.checked = true;
-            if (label && !this.selectedCheckboxes.includes(label)) {
-                this.selectedCheckboxes = [...this.selectedCheckboxes, label];
-            }
-        } else {
-            this.selectedCheckboxes = [
-                ...this.selectedCheckboxes.filter(
-                    (selectedLabel) => selectedLabel !== label
-                )
-            ];
-            if (!this.selectedCheckboxes.length) {
-                this.checked = false;
-            }
-        }
     }
 }
